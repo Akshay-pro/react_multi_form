@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import UserDetails from './UserDetails';
+import PersonalDetails from './PersonalDetails';
+import Confirm from './Confirm';
+import Success from './Success';
 
 export class FormMain extends Component {
     state={
@@ -47,16 +50,23 @@ export class FormMain extends Component {
                 )
                 case 2:
                     return (
-                        <h1>FormPersonalDetails</h1>
-                    )
+                        <PersonalDetails
+                            nextStep={this.nextStep}
+                            prevStep={this.prevStep}
+                            handleChange={this.handleChange}
+                            values={values} />
+                        )
                     case 3:
                         return (
-                            <h1>Confirm</h1>
+                        <Confirm
+                            nextStep={this.nextStep}
+                            prevStep={this.prevStep}
+                            values={values} />
                         )
-                        case 3:
+                        case 4:
                             return (
-                                <h1>Success</h1>
-                            )
+                                <Success />
+                            ) 
         }
     }
 }
